@@ -12,25 +12,19 @@ use Illuminate\Queue\SerializesModels;
 
 class TaskCreated extends Mailable
 {
-     use Queueable, SerializesModels;
+    use Queueable, SerializesModels;
 
     public $task;
 
-    /**
-     * Create a new message instance.
-     */
-    public function __construct(Task $task)
+    public function __construct($task)
     {
         $this->task = $task;
     }
 
-    /**
-     * Build the message.
-     */
     public function build()
     {
-       
         return $this->subject('New Task Created')
-                    ->view('emails.task_created');
+                    ->view('emails.task-created');
     }
 }
+
