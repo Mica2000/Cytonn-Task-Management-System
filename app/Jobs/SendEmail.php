@@ -9,7 +9,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Log;
-// use App\Mail\TaskCreated;
+use App\Mail\TaskCreated;
 
 class SendEmail implements ShouldQueue
 {
@@ -36,6 +36,6 @@ class SendEmail implements ShouldQueue
             'task' => $this->task->toArray()
         ]);
         // Send email notification to the logged-in user
-        Mail::to($this->emailAddress)->send(new App\Mail\TaskCreated($this->task));
+        Mail::to($this->emailAddress)->send(new TaskCreated($this->task));
     }
 }

@@ -3,7 +3,7 @@
     <!-- All your dashboard content here -->
     <div class="grid grid-cols-2 gap-4">
       <AddTaskForm @task-created="refreshTasks" />
-      <TaskList :onEdit="openEditDialog" />
+      <TaskList ref="taskList" :onEdit="openEditDialog" />
     </div>
 
     <EditTaskDialog
@@ -40,7 +40,7 @@ export default {
       this.showDialog = true;
     },
     refreshTasks() {
-      // Optional: trigger child fetch
+      this.$refs.taskList.fetchTasks();
     },
   },
 };

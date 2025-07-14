@@ -46,7 +46,7 @@ export default {
     async submitForm() {
       try {
         await axios.post('/tasks', this.form);
-        this.$emit('task-added');
+        this.$emit('task-created');
         this.form = { title: '', description: '', deadline: '', status: 'Pending' };
       } catch (error) {
         console.error('Error saving task:', error);
