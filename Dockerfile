@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y \
     nodejs \
     npm \
     supervisor \
-    && docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd sockets
+    && docker-php-ext-install pdo pdo_mysql pdo_pgsql mbstring exif pcntl bcmath gd sockets
 
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
